@@ -17,7 +17,7 @@ db.init()
 app = FastAPI()
 app.add_middleware(CORSMiddleware, allow_origins=[
         "http://localhost:5173",
-        "https://YOUR-PROJECT.vercel.app"
+        "https://swift-employee.vercel.app"
     ], allow_methods=["*"], allow_headers=["*"])
 
 class TaskIn(BaseModel):
