@@ -1,0 +1,23 @@
+:root { --bg:#e8ece4; --ink:#1d2b2a; --mute:#5b6b69; --line:#c5cdc3; --ok:#1f7a4d; --warn:#a8650d; --bad:#b3261e; --run:#2b5c8a; }
+* { box-sizing: border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.55 system-ui, sans-serif; }
+main { max-width:760px; margin:0 auto; padding:40px 20px 80px; }
+h1 { font:700 2.4rem Georgia, serif; margin:0; letter-spacing:-.02em; }
+h2 { font:600 1.15rem Georgia, serif; margin:32px 0 10px; display:flex; gap:10px; align-items:center; }
+.lede { color:var(--mute); margin:4px 0 20px; }
+textarea { width:100%; padding:12px; font:inherit; border:1px solid var(--line); background:#f6f8f3; color:var(--ink); border-radius:6px; resize:vertical; }
+.bar { display:flex; gap:16px; align-items:center; margin-top:10px; flex-wrap:wrap; color:var(--mute); font-size:.9rem; }
+button, .dl { background:var(--ink); color:#f6f8f3; border:0; padding:10px 20px; border-radius:6px; font:600 1rem system-ui; cursor:pointer; text-decoration:none; display:inline-block; }
+button:disabled { opacity:.5; cursor:wait; }
+:focus-visible { outline:3px solid var(--run); outline-offset:2px; }
+.timeline { list-style:none; margin:0; padding:0 0 0 18px; border-left:2px solid var(--line); }
+.timeline li { position:relative; padding:0 0 14px 14px; }
+.timeline li::before { content:""; position:absolute; left:-25px; top:6px; width:12px; height:12px; border-radius:50%; background:var(--run); }
+li.ok::before { background:var(--ok); } li.warn::before { background:var(--warn); } li.error::before { background:var(--bad); }
+li.running::before { animation:pulse 1s infinite; }
+@keyframes pulse { 50% { opacity:.3; } } @media (prefers-reduced-motion:reduce) { li.running::before { animation:none; } }
+.timeline small, .dur { color:var(--mute); font:400 .8rem system-ui; } .timeline div { color:var(--mute); font-size:.9rem; word-break:break-word; }
+.pill { font:600 .75rem system-ui; padding:2px 10px; border-radius:99px; background:var(--run); color:#fff; }
+.pill.completed { background:var(--ok); } .pill.partial { background:var(--warn); } .pill.failed { background:var(--bad); }
+.checks { list-style:none; padding:0; margin:0; } .checks li.ok { color:var(--ok); } .checks li.error { color:var(--bad); }
+.sources { padding-left:18px; } .err { color:var(--bad); font-weight:600; } .dl { margin-top:12px; }
